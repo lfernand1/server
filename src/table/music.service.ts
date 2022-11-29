@@ -5,17 +5,27 @@ import { Music } from "./entities/music.entity";
 
 @Injectable()
 export class MusicService {
-musics: Music[] = [];
+musics: Music[
+    
+] = [];
 constructor(private readonly prisma: PrismaService) {}
 
-    findAll() {
-        return this.musics;
+    findAll():Promise<Music[]>{
+        return this.prisma.musics.findMany();
     }
-    create(createMusicDto: CreateMusicDto) {
-        const music: Music = {id:'ramdom_id', ...createMusicDto}
 
-this.musics.push(music)
+    findOne({ id }: { id: string; }):Promise<Music>{
+        return this.prisma.musics.findUnique({
+            where: {
+                id,
+            }
+        })
+    }
 
-        return music;
+
+    create({ dto }: { dto: CreateMusicDto; }): Promise<Music> {
+        const data: Music = {...dto};
+
+        return this.prisma.musics.create({data});
     }
 }
