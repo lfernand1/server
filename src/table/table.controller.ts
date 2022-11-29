@@ -14,7 +14,7 @@ findAll() {
 
 @Post()
 create(@Body() CreateTableDto: CreateTableDto ){
-    return this.tableService.create(createTableDto)
+    return this.tableService.create(CreateTableDto)
 }
 
 }
