@@ -1,11 +1,12 @@
 import { Injectable } from "@nestjs/common";
+import { CreateTableDto } from "./dto/create-table.dto";
 
 @Injectable()
 export class TableService {
-    create() {
-        return 'Criar uma mesa';
-    }
     findAll() {
         return 'Buscar todas as mesas';
+    }
+    create(createTableDto: CreateTableDto) {
+        return 'Criar uma mesa';
     }
 }

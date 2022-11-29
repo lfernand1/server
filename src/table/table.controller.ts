@@ -1,4 +1,5 @@
-import { Controller,Get, Post } from "@nestjs/common";
+import { Body, Controller,Get, Post } from "@nestjs/common";
+import { CreateTableDto } from "./dto/create-table.dto";
 import { TableService } from "./table.service";
 
 
@@ -12,8 +13,8 @@ findAll() {
 }
 
 @Post()
-create(){
-    return this.tableService.create()
+create(@Body() CreateTableDto: CreateTableDto ){
+    return this.tableService.create(createTableDto)
 }
 
 }
