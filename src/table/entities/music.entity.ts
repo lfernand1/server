@@ -1,4 +1,4 @@
-export class Table {
+export class Music {
     id: string;
     number:number;
 }
