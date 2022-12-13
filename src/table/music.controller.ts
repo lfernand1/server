@@ -21,7 +21,7 @@ findAll() {
   summary: "Visualizar uma música"
 })
 findOne(@Param("id") id: string): Promise<Music> {
-  return this.musicService.findOne(id, );
+  return this.musicService.findOne(id);
 }
 
 @Patch(':id')

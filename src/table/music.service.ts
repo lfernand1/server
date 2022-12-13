@@ -1,14 +1,12 @@
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateMusicDto } from "./dto/create-music.dto";
 import { UpdateMusicDto } from "./dto/update-music.dto";
 import { Music } from "./entities/music.entity";
 
 @Injectable()
 export class MusicService {
-    update(id: string, dto: UpdateMusicDto): Promise<Music> {
-        throw new Error("Method not implemented.");
-    }
+ 
 musics: Music[
     
 ] = [];
@@ -25,6 +23,10 @@ constructor(private readonly prisma: PrismaService) {}
                 id,
             }
         })
+    }
+
+    update(id: string, dto: UpdateMusicDto): Promise<Music> {
+        throw new Error("Method not implemented.");
     }
 
     async delete(id: string) {
